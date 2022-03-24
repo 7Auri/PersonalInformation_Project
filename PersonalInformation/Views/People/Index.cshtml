@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PersonalInformation.Models.Person>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a class="btn btn-info" asp-action="Person" asp-route-id="null">Create</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th style="font-family: 'Comic Sans MS'" scope="col">Full Name</th>
+            <th style="font-family: 'Comic Sans MS'" scope="col">Email</th>
+            <th style="font-family: 'Comic Sans MS'" scope="col">Start Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                
+                <td style="font-family: 'Comic Sans MS'">@item.FullName</td>
+                <td style="font-family: 'Comic Sans MS'">@item.Email</td>
+                <td style="font-family: 'Comic Sans MS'">@item.StartDate</td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-secondary" asp-action="Person" asp-route-id="@item.Id">Update</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

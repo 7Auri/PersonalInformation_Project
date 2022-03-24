@@ -1,0 +1,28 @@
+﻿@model PersonalInformation.Models.Person
+
+@{ ViewData["Title"] = ""; }
+<h1>@ViewData["Title"]</h1>
+
+<form method="POST" asp-action="Create" autocomplete="off">
+    <div class="form-group">
+        <input type="hidden" asp-for="Id">
+        <p style=" font-weight:bolder; font-family:'Comic Sans MS'">Full Name</p>
+        <input type="text" asp-for="FullName" class="form-control">
+    </div>
+    <div class="form-group">
+        <p style=" font-weight:bolder; font-family:'Comic Sans MS'">Email</p>
+        <input type="text" asp-for="Email" class="form-control">
+    </div>
+    <div class="form-group">
+        <p style=" font-weight:bolder; font-family:'Comic Sans MS'">Start Date</p>
+        <input type="text" asp-for="StartDate" class="form-control">
+    </div>
+    <div class="form-group">
+        @if (Model.Id == 0)
+        {
+            <button type="submit" class="btn btn-info">Create</button> }
+        else
+        {
+            <button type="submit" class="btn btn-secondary">Update</button>}
+    </div>
+</form>
